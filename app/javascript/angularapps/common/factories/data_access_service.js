@@ -3,8 +3,7 @@ app.factory('DataAccessService',function($http){
       var self = this;
      
     }
-    
-  
+
     DataAccessService.prototype.getChannels = function(sector_group_unique_id) {
       var apiUrl = "/channels/";
       return $http.get(apiUrl).then(function(response){
