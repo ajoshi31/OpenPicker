@@ -10,7 +10,7 @@ exports.upload = (file,destinationFileName,subDirectoryPath,  callback) ->
 	params = 
 		Key: if subDirectoryPath == '' then destinationFileName else subDirectoryPath+'/'+destinationFileName
 		Body: fs.readFileSync(file.path)
-		ACL: if subDirectoryPath == 'Assignments' then 'public-read' else 'public-read',
+		ACL: if subDirectoryPath == 'Assignments' then 'authenticated-read' else 'authenticated-read',
 		ContentType:file.headers['content-type']
 	s3bucket.upload params ,(err,data) ->
 		if err?
